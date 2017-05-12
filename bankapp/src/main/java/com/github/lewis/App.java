@@ -1,29 +1,26 @@
 package com.github.lewis;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class App {
 
-    public static void main( String[] args ) throws IOException {
-        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        Input input = new Input();
+        String fileLocation = args[0];
+        AccountCreator accountCreator = new AccountCreator(input, fileLocation);
+        Authenticator authenticator = new Authenticator(input);
 
-        System.out.println( "Hello, Welcome to the Bank." );
-        System.out.println("Would you like to do?");
-        System.out.println("1. Create account");
-        System.out.println("2. Login to account");
-        String response = scan.next();
+        String response = input.getOption();
+
+
 
         if (response.equals("1")){
-            String[] account = AccountCreator.createAccount();
-            AccountCreator.saveAccount("C:\\Users\\Fraser\\IdeaProjects\\BankApp\\bankapp\\Accounts\\accounts.csv", account);
+            String[] account = accountCreator.createAccount();
+            accountCreator.saveAccount(account);
         }else if (response.equals("2")){
-
-        }else{
-
+            String accountNumber = input.getAccountNumber();
+            System.out.println(authenticator.loginAuthorised(fileLocation, accountNumber));
         }
-
-
 
     }
 

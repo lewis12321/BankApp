@@ -10,6 +10,8 @@ $RECYCLE.BIN/
 
 .idea
 *.iml
+target
+accounts.csv
 
 # Windows Installer files
 *.cab
