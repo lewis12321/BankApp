@@ -20,6 +20,23 @@ public class AccountManagerTest {
     }
 
     @Test
+    public void testViewFunds() throws Exception {
+        Input input = new Input();
+        AccountManager accountManager = new AccountManager(tempFile.getPath());
+        AccountCreator accountCreatorClass = new AccountCreator(input, tempFile.getPath());
+
+        String[] accountCreator = new String[]{"40000000", "password", "100"};
+        accountCreatorClass.saveAccount(accountCreator);
+
+        accountManager.viewFunds("40000000");
+        List<String[]> accounts = AccountUtilises.readFromCSV(tempFile.getPath());
+        String balance = accounts.get(0)[2];
+
+        assertEquals("100", balance);
+
+    }
+
+    @Test
     public void testDepositFunds() throws Exception {
         Input input = new Input();
         AccountManager accountManager = new AccountManager(tempFile.getPath());

@@ -33,8 +33,9 @@ public class Input {
 
     String getBankManagerOption(){
         System.out.println("Would you like to do?");
-        System.out.println("1. Deposit funds.");
-        System.out.println("2. Withdraw funds.");
+        System.out.println("1. View balance.");
+        System.out.println("2. Deposit funds.");
+        System.out.println("3. Withdraw funds.");
 
         return scan.next();
     }
