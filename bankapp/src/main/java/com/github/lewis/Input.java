@@ -25,9 +25,27 @@ public class Input {
     String getOption(){
         System.out.println( "Hello, Welcome to the Bank." );
         System.out.println("Would you like to do?");
-        System.out.println("1. Create account");
-        System.out.println("2. Login to account");
+        System.out.println("1. Create account.");
+        System.out.println("2. Login to account.");
 
+        return scan.next();
+    }
+
+    String getBankManagerOption(){
+        System.out.println("Would you like to do?");
+        System.out.println("1. Deposit funds.");
+        System.out.println("2. Withdraw funds.");
+
+        return scan.next();
+    }
+
+    String getDepositAmount(){
+        System.out.println("How much would you like to deposit?");
+        return scan.next();
+    }
+
+    String getWithdrawalAmount(){
+        System.out.println("How much would you like to withdraw?");
         return scan.next();
     }
 

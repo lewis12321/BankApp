@@ -24,6 +24,15 @@ class AccountCreator {
         writer.close();
     }
 
+    void overwriteAccount(String[] account) throws IOException {
+        CSVWriter writer = new CSVWriter(new FileWriter(fileLocation));
+
+        writer.writeNext(account);
+        writer.flush();
+        writer.close();
+    }
+
+
     String[] createAccount() throws IOException {
         String[] account = new String[3];
         account[0] = Integer.toString(createAccountNumber());
